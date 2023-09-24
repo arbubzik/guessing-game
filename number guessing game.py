@@ -13,21 +13,33 @@ upper_bound = int(input("This will be upper bound: "))
 
 #generate random integrer in the range
 guessing_number = random.randint(lower_bound, upper_bound)
-print(f"You have only {guessing_number} chances to guess!")
 
-#user is guessing their number
-user_number = int(input("Guess your number: "))
-
-while guessing_number > user_number:
-    how_many_guesses = 0
-    print("Try again! You guessed too hight!")
-else:
-    print("Try againg! You huessed too small!")
+#starting number of guesses
+guesses = 0
 
 #calculating how many times user can guess
-guesses = int(math.log(upper_bound - lower_bound +1))
+guesses_attempts = round(math.log(upper_bound - lower_bound + 1, 2))
+print(f"You have only {guesses_attempts} chances to guess!")
 
-if how_many_guesses == guesses:
-    print("Congratulations!")
-else:
-    print("Better Luck next time!")
+#user is guessing their number
+#user_number = int(input("Guess your number: "))
+
+while guesses < guesses_attempts:
+    guesses +=1
+
+    #user is guessing their number
+    user_number = int(input("Guess your number: "))
+
+    if user_number == guessing_number:
+        print(f"Congratulations! you did it in {guesses} try")
+
+        break
+    elif guessing_number < user_number:
+        print("Try again! You guessed too hight!")
+    elif guessing_number > user_number:
+        print("Try againg! You guessed too small!")
+
+#if numbers of attempts are too high, we have to check it and print this message in the end
+if guesses >= guesses_attempts:
+    print("Better luck next time!")
+    print(f"The number is {guessing_number}")
