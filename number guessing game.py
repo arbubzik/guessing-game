@@ -37,8 +37,9 @@ while guesses < guesses_attempts:
     elif guessing_number < user_number:
         print("Try again! You guessed too hight!")
     elif guessing_number > user_number:
-        print("Try againg! You huessed too small!")
+        print("Try againg! You guessed too small!")
 
+#if numbers of attempts are too high, we have to check it and print this message in the end
 if guesses >= guesses_attempts:
     print("Better luck next time!")
     print(f"The number is {guessing_number}")
