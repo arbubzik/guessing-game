@@ -21,9 +21,8 @@ guesses = 0
 guesses_attempts = round(math.log(upper_bound - lower_bound + 1, 2))
 print(f"You have only {guesses_attempts} chances to guess!")
 
-#user is guessing their number
-#user_number = int(input("Guess your number: "))
 
+#now we are checking if user attempts are smaller then calculated guessing attempts
 while guesses < guesses_attempts:
     guesses +=1
 
